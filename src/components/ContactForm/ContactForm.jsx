@@ -2,6 +2,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
 import PropTypes from 'prop-types';
 
+import css from './ContactForm.module.css';
+
 const nameExpression = RegExp(
   "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
 );
@@ -36,10 +38,34 @@ export const ContactForm = ({ addContact }) => {
       onSubmit={handleFormSubmit}
     >
       <Form>
-        <Field type="text" name="name" required />
-        <ErrorMessage name="name" component="div" />
-        <Field type="tel" name="number" required />
-        <ErrorMessage name="number" component="div" />
+        <label className={css.contact_form_group}>
+          <span className={css.contact_form_label}>Name</span>
+          <Field
+            className={css.contact_form_input}
+            type="text"
+            name="name"
+            required
+          />
+          <ErrorMessage
+            className={css.contact_form_error}
+            name="name"
+            component="span"
+          />
+        </label>
+        <label className={css.contact_form_group}>
+          <span className={css.contact_form_label}>Number</span>
+          <Field
+            className={css.contact_form_input}
+            type="tel"
+            name="number"
+            required
+          />
+          <ErrorMessage
+            className={css.contact_form_error}
+            name="number"
+            component="span"
+          />
+        </label>
         <button type="submit">Add contact</button>
       </Form>
     </Formik>

@@ -1,0 +1,19 @@
+.contact_form_input {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.contact_form_group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.contact_form_label {
+  display: block;
+  width: 100%;
+}
+
+.contact_form_error {
+  color: rgb(233, 16, 16);
+}
